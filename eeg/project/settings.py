@@ -54,7 +54,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'eeg.urls'
+ROOT_URLCONF = 'eeg_app.urls'
 
 TEMPLATES = [
     {
@@ -72,7 +72,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'eeg.wsgi.application'
+WSGI_APPLICATION = 'project.wsgi.application'
 
 
 # Database
@@ -80,7 +80,7 @@ WSGI_APPLICATION = 'eeg.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgressql_psycopg2',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'eeg',
         'USER': env('PGUSER'),
         'PASSWORD': env('PGPASSWORD'),
