@@ -1,0 +1,7 @@
+
+<h2>Add a new file (.edf or .txt)</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{form}}
+        <button type="submit">Submit</button>
+    </form>
