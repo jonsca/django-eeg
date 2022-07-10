@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-9a_r3@m2twb3@w%fo-$3h9h1q-i4b8a3yt(=3rhulx7d(7$2m0
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'jscabich.pythonanywhere.com']
 
 
 # Application definition
