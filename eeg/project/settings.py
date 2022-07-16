@@ -31,7 +31,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'jscabich.pythonanywhere.com']
 
-
+MEDIA_ROOT='eeg_app/files'
 # Application definition
 
 INSTALLED_APPS = [
