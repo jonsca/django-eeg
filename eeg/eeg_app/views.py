@@ -17,9 +17,9 @@ def upload_file(request):
     else:
         form = UploadForm()
     
-    return render(request, '../templates/upload.html', {'form': form})
+    return render(request, 'eeg_app/upload.html', {'form': form})
 
 def post_upload(request):
     plot_div = plot_points()
     
-    return render(request, '../templates/show_graph.html', context={'plot_div': plot_div})
+    return render(request, 'eeg_app/show_graph.html', context={'plot_div': plot_div})
