@@ -1,13 +1,28 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect, FileResponse
 from django.conf import settings
+
+from django.views.generic import TemplateView
+from django.views.generic import CreateView
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.views import LoginView
+
+
 from .forms import UploadForm
-from .file_utils import plot_points
+from .helpers.file_utils import plot_points
 
-# Create your views here.
+class HomeView(TemplateView):
+    template_name='eeg_app/home.html'
 
-def index(request):
-    return HttpResponse("<h1>The Homepage</h1>")
+class SignupView(CreateView):
+    form_class: UserCreationForm
+    template_name='eeg_app/register.html'
+    success_url='/home'
+
+class SystemLoginView(LoginView):
+    template_name='eeg_app/login.html'
+
+
 
 def upload_file(request):
     if request.method == "POST":
