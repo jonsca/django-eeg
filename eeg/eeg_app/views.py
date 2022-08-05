@@ -9,7 +9,9 @@ from django.contrib.auth.views import LoginView
 
 
 from .forms import UploadForm
-from .helpers.file_utils import plot_points
+from .helpers.plot_utils import plot_points
+from .helpers.file_handler import save_file
+from .helpers.eeg_processsing import return_epochs
 
 class HomeView(TemplateView):
     template_name='eeg_app/home.html'
@@ -28,7 +30,10 @@ def upload_file(request):
     if request.method == "POST":
         form = UploadForm(request.POST, request.FILES)
         if form.is_valid():
-            pass 
+            fname = save_file(request.FILES['file'], 
+                str(request.FILES['file']), settings.MEDIA_ROOT)
+            eps = return_epochs(fname)
+            print(eps)
         return HttpResponseRedirect('post_upload')
     else:
         form = UploadForm()
